@@ -15,9 +15,9 @@ const root = ReactDOM.createRoot(
 const queryClient = new QueryClient();
 const store = createStore();
 
-// TODO: change back before production
-axios.defaults.baseURL = "https://europe-west3-custommenucards.cloudfunctions.net/api";
-// axios.defaults.baseURL = "http://localhost:5000/custommenucards/europe-west3/api";
+// TODO: change back before developing
+// axios.defaults.baseURL = "https://europe-west3-custommenucards.cloudfunctions.net/api";
+axios.defaults.baseURL = "http://localhost:5000/custommenucards/europe-west3/api";
 
 
 root.render(

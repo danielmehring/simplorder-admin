@@ -12,13 +12,13 @@ import Restaurants from "./pages/Restaurants";
 
 function App() {
     const firebaseConfig = {
-        apiKey: "AIzaSyBpKjsF6Gp9nf_jkHSy_c3mpGfUJ900muo",
-        authDomain: "custommenucards.firebaseapp.com",
-        projectId: "custommenucards",
-        storageBucket: "custommenucards.appspot.com",
-        messagingSenderId: "1041081817367",
-        appId: "1:1041081817367:web:44223b3c961edf59f13f52"
-    }; //TODO: change back before production
+        apiKey: "AIzaSyDsHLO-lf9Ny7x_VSVdUXpIJ1Cvo9sV2UY",
+        authDomain: "simplorderapi.firebaseapp.com",
+        projectId: "simplorderapi",
+        storageBucket: "simplorderapi.appspot.com",
+        messagingSenderId: "411236134786",
+        appId: "1:411236134786:web:7e025154553a890e5be99b"
+    }; //TODO: change back before developing
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);

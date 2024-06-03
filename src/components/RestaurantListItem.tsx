@@ -2,7 +2,6 @@ import React from 'react';
 import {Restaurant} from "../types/Types";
 import {ButtonBase} from "@mui/material";
 import {MdOutlineNumbers} from "react-icons/md";
-import {VerticalSpacerH1} from "../util/Spacers";
 import {formatUnixToTextTimeDate} from "../util/textHelper";
 
 const RestaurantListItem = (props: {restaurant: Restaurant}) => {
