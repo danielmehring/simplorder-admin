@@ -7,6 +7,8 @@ import {isLoggedInAtom} from "./jotai/auth";
 import {Route, Routes, useLocation, useNavigate} from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
+import LogoutButton from "./components/LogoutButton";
+import Restaurants from "./pages/Restaurants";
 
 function App() {
     const firebaseConfig = {
@@ -29,7 +31,6 @@ function App() {
     auth.onAuthStateChanged((user) => {
         if (user) {
             setLoggedIn(true);
-            console.log("user", user, "auth", auth);
         } else {
             setLoggedIn(false);
         }
@@ -45,7 +46,7 @@ function App() {
                 navigate("/login");
             }
         }
-    }, [isLoggedIn]);
+    }, [isLoggedIn, navigate, pathname]);
 
     return (
         <div className="App">
@@ -53,10 +54,14 @@ function App() {
                 <Route path="/" element={
                     <Dashboard auth={auth}/>
                 }/>
+                <Route path="/restaurants" element={
+                    <Restaurants auth={auth}/>
+                }/>
                 <Route path="/login" element={
                     <Login auth={auth}/>
                 }/>
             </Routes>
+            <LogoutButton auth={auth}/>
         </div>
     );
 }

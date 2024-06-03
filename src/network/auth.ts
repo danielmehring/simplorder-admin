@@ -1,12 +1,10 @@
 import {signInWithEmailAndPassword, signOut} from "firebase/auth";
 import {useMutation} from "@tanstack/react-query";
-import {useNavigate} from "react-router-dom";
 import {useSetAtom} from "jotai";
 import {isLoggedInAtom} from "../jotai/auth";
 import {LoginData} from "../types/Types";
 
 export const useLogin = () => {
-    const navigate = useNavigate();
     const setIsLoggedIn = useSetAtom(isLoggedInAtom);
 
     const login = async (loginData: LoginData) => {
@@ -30,6 +28,14 @@ export const useLogin = () => {
 }
 
 export const useLogout = () => {
-    // @ts-ignore
-    return useMutation((auth) => signOut(auth));
+    const setIsLoggedIn = useSetAtom(isLoggedInAtom);
+
+    return useMutation({
+        // @ts-ignore
+        mutationFn: (auth) => signOut(auth),
+        onSuccess: () => {
+            setIsLoggedIn(false);
+            window.location.reload();
+        }
+    });
 }
